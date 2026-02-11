@@ -28,12 +28,13 @@ import { Star } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TestimonialsSection from './Testiminials';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
-export default function ARDigitalSolution() {
+export default function GrowthFlowMedia() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentImageText, setCurrentImageText] = useState(0);
@@ -90,6 +91,13 @@ const faqData = [
     answer: "Our digital marketing packages include strategy development, SEO optimization, social media management, content creation, PPC campaign management, analytics reporting, and monthly performance reviews. We customize each package based on your specific business goals and budget."
   }
 ];const [helpOpen, setHelpOpen] = useState(false);
+const navigate=useNavigate();
+const handleChangeSelection=(e)=>{
+const selectedValue=e.target.value;
+if(selectedValue){
+  navigate(selectedValue);
+}
+};
 useEffect(() => {
   const handleClickOutside = (event) => {
     // Check if click is outside the help button container
@@ -519,23 +527,23 @@ const ContactSection=useRef(null);
           Select Services
         </label>
         <div className="flex flex-col sm:flex-row gap-3">
-          <select className="flex-1 border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-gray-700 bg-white text-sm sm:text-base">
+          <select onChange={handleChangeSelection} defaultValue=""className="flex-1 border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-gray-700 bg-white text-sm sm:text-base">
             <option value="">Select a Service</option>
-            <option value="website-design">Website Design</option>
-            <option value="ecommerce-websites">ECommerce Websites</option>
-            <option value="service-website">Service Website</option>
-            <option value="branding-logo-design">Branding & Logo Design</option>
-            <option value="digital-marketing">Digital Marketing</option>
-            <option value="seo">Search Engine Optimisation</option>
-            <option value="google-ads">Google Ads Management</option>
-            <option value="meta-ads">Meta Ads Management</option>
-            <option value="content-marketing">Content Marketing</option>
-            <option value="cro">Conversion Rate Optimization</option>
-            <option value="managed-hosting">Managed Hosting</option>
-            <option value="go-high-level-crm">Go High Level CRM</option>
-            <option value="ai-agents">AI Agents / Automation Development</option>
-            <option value="white-label-marketing">White Label Marketing</option>
-            <option value="lead-generation">Lead Generation</option>
+            <option value="/webdesign">Website Design</option>
+            <option value="/ecommerce">ECommerce Websites</option>
+            <option value="/service-site">Service Website</option>
+            <option value="/branding&logodesign">Branding & Logo Design</option>
+            <option value="/digitalmarketing">Digital Marketing</option>
+            <option value="/seo">Search Engine Optimisation</option>
+            <option value="/googleads">Google Ads Management</option>
+            <option value="/metaads">Meta Ads Management</option>
+       
+            <option value="/conversionrate">Conversion Rate Optimization</option>
+            <option value="/hosting">Managed Hosting</option>
+            <option value="/gohigh">Go High Level CRM</option>
+            <option value="/ai">AI Agents / Automation Development</option>
+            <option value="/whitelabel">White Label Marketing</option>
+            <option value="/lead">Lead Generation</option>
           </select>
           <button data-aos="slide-up" className="flex justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-black px-6 sm:px-8 py-2 sm:py-3 rounded-md font-semibold whitespace-nowrap text-sm sm:text-base" onClick={scrollToContact}>
             Get Started Now <span><ArrowRightCircle size={18} className='text-black mt-0.5 sm:mt-1'/></span>
@@ -753,7 +761,7 @@ className="text-white text-lg sm:text-xl mb-6 sm:mb-8 font-handwriting">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-12">
       <button data-aos="slide-right"
 className="bg-purple-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-purple-600 flex items-center gap-2 text-sm sm:text-base justify-center"
->
+onClick={()=>{window.location.href='/ecommerce'}}> 
   
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v4H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 10h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4z" clipRule="evenodd" />
@@ -762,40 +770,42 @@ className="bg-purple-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-me
       </button>
        <button data-aos="slide-right"
 className="bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-600 flex items-center gap-2 text-sm sm:text-base justify-center"
-
+onClick={()=>{window.location.href='/service-site'}}
 >
      <Globe size={20}/>
         Service Websites
       </button>
        <button data-aos="slide-right"
-className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-600 flex items-center gap-2 text-sm sm:text-base justify-center">
+className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-600 flex items-center gap-2 text-sm sm:text-base justify-center" onClick={()=>{window.location.href='/ai'}}>
        <Bot size={20}/>
          Ai Agents/Automation Development
       </button>
      
-      <button data-aos="slide-up" className="bg-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base justify-center">
+      <button data-aos="slide-up" className="bg-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base justify-center" onClick={()=>{window.location.href='/metaads'}}>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
         </svg>
         Meta Ads Management
       </button>
-      <button data-aos="slide-left"className="bg-pink-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-pink-700 flex items-center gap-2 text-sm sm:text-base justify-center">
+      <button data-aos="slide-left"className="bg-pink-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-pink-700 flex items-center gap-2 text-sm sm:text-base justify-center" onClick={()=>{window.location.href='/googleads'}}>
        <Target size={20}/>
         Google Ads Management
       </button>
-      <button  data-aos="slide-right"className="bg-yellow-300 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-yellow-500 flex items-center gap-2 text-sm sm:text-base justify-center">
+      <button  data-aos="slide-right"className="bg-yellow-300 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-yellow-500 flex items-center gap-2 text-sm sm:text-base justify-center" onClick={()=>{window.location.href='/hosting'}} >
         <Server size={20}/>
         Managed Hosting
       </button>
-          <button  data-aos="slide-right"className="bg-red-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-red-900 flex items-center gap-2 text-sm sm:text-base justify-center">
+          <button  data-aos="slide-right"className="bg-red-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-red-900 flex items-center gap-2 text-sm sm:text-base justify-center"
+          onClick={()=>{window.location.href='/lead'}}
+          >
         <UserPlus size={20}/>
         lead Generation
       </button>
-          <button  data-aos="slide-right"className="bg-blue-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-900 flex items-center gap-2 text-sm sm:text-base justify-center">
+          <button  data-aos="slide-right"className="bg-blue-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-900 flex items-center gap-2 text-sm sm:text-base justify-center" onClick={()=>{window.location.href='/whitelabel'}}>
       <Layers size={20}/>
         White Label Marketing
       </button>
-      <button data-aos="slide-up"className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-700 flex items-center gap-2 text-sm sm:text-base justify-center"  >
+      <button data-aos="slide-up"className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-700 flex items-center gap-2 text-sm sm:text-base justify-center"  onClick={()=>{window.location.href='/seo'}}>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
         </svg>
@@ -956,13 +966,13 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
             ].map((item, index) => (
               <div 
                 key={index} data-aos="fade-up"
-                className="bg-[#0f0f0f] p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 hover:bg-[#FF9500] why-choose-card"
+                className="group bg-[#0f0f0f] p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 hover:bg-orange-800  why-choose-card"
               >
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500 mb-2 sm:mb-3 lg:mb-4" data-aos="slide-down">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500 mb-2  sm:mb-3 lg:mb-4 group-hover:text-white transition-colors duration-300" data-aos="slide-down">
                   {index + 1}.{item.title}
                 </div>
                
-                <p data-aos="slide-right" className="text-white text-sm sm:text-base">{item.desc}</p>
+                <p data-aos="slide-right" className="text-white text-sm sm:text-base group-hover:text-black transition-colors duration-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -1097,59 +1107,11 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
       {/* Latest News Section */}
       <section ref={ContactSection} className="bg-white py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+           <h2 data-aos="slide-left"className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Contact Us</h2>
+        
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
-            <div>
-              <h2 data-aos="slide-right"className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Latest News & Updates</h2>
-              <p data-aos="slide-up" className="text-orange-500 text-lg sm:text-xl mb-8 sm:mb-12" style={{ fontFamily: 'Comic Sans MS, cursive' }}>
-                Stay up To Date With The Latest From Growth Flow Media.
-              </p>
-
-              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-                <div data-aos="slide-right"className="flex flex-col sm:flex-row gap-3 bg-white shadow-lg sm:shadow-xl rounded-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
-                  <div className='h-40 w-full sm:w-80 border rounded-lg overflow-hidden'>
-                    <img
-                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-                      alt="Team meeting"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className=''>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">
-                      How Growth Flow Media Delivers High-Performance PPC Management in Brisbane
-                    </h3>
-                    <p className="text-gray-500 text-xs sm:text-sm mb-2">January 3, 2026</p>
-                    <p className="text-gray-600 text-sm sm:text-base">
-                      PPC management is becoming the foundation stone for the success of businesses in Brisbane. The instantaneous reach that it offers
-                    </p>
-                  </div>
-                </div>
-
-                <div data-aos="slide-right" className="flex flex-col sm:flex-row gap-3 bg-white shadow-lg sm:shadow-xl rounded-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
-                  <div className='h-40 w-full sm:w-80 border rounded-lg overflow-hidden'>
-                    <img
-                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-                      alt="Team meeting"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className=''>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">
-                      Why Your Business Needs a Professional Website Design Agency in Brisbane
-                    </h3>
-                    <p className="text-gray-500 text-xs sm:text-sm mb-2">December 26, 2025</p>
-                    <p className="text-gray-600 text-sm sm:text-base">
-                      Website Design Agency in Brisbane plays a crucial role in today's market, where your website is often the very first
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <button data-aos="slide-left"className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base">
-                View All <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div data-aos="slide-left" className="bg-black border rounded-lg p-4 sm:p-6 lg:p-8 mt-8 md:mt-0">
+             <div data-aos="slide-right" className="bg-black border rounded-lg p-4 sm:p-6 lg:p-8 mt-8 md:mt-0">
+              
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <img
                   src={image10}
@@ -1214,6 +1176,58 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
                 Submit Request
               </button>
             </div>
+            <div>
+              <h2 data-aos="slide-left"className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Latest News & Updates</h2>
+              <p data-aos="slide-up" className="text-orange-500 text-lg sm:text-xl mb-8 sm:mb-12" style={{ fontFamily: 'Comic Sans MS, cursive' }}>
+                Stay up To Date With The Latest From Growth Flow Media.
+              </p>
+
+              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                <div data-aos="slide-right"className="flex flex-col sm:flex-row gap-3 bg-white shadow-lg sm:shadow-xl rounded-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className='h-40 w-full sm:w-80 border rounded-lg overflow-hidden'>
+                    <img
+                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                      alt="Team meeting"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className=''>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2">
+                      How Growth Flow Media Delivers High-Performance PPC Management in Brisbane
+                    </h3>
+                    <p className="text-gray-500 text-xs sm:text-sm mb-2">January 3, 2026</p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      PPC management is becoming the foundation stone for the success of businesses in Brisbane. The instantaneous reach that it offers
+                    </p>
+                  </div>
+                </div>
+
+                <div data-aos="slide-right" className="flex flex-col sm:flex-row gap-3 bg-white shadow-lg sm:shadow-xl rounded-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className='h-40 w-full sm:w-80 border rounded-lg overflow-hidden'>
+                    <img
+                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                      alt="Team meeting"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className=''>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2">
+                      Why Your Business Needs a Professional Website Design Agency in Brisbane
+                    </h3>
+                    <p className="text-gray-500 text-xs sm:text-sm mb-2">December 26, 2025</p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      Website Design Agency in Brisbane plays a crucial role in today's market, where your website is often the very first
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button data-aos="slide-left"className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base">
+                View All <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+           
           </div>
         </div>
       </section>
