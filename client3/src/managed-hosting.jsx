@@ -46,6 +46,12 @@ const Hosting = () => {
     return () => observer.disconnect();
   }, []);
 
+const handleChangeSelection=(e)=>{
+const selectedValue=e.target.value;
+if(selectedValue){
+  navigate(selectedValue);
+}
+};
   return (
     <div className="min-h-screen bg-gray-50">
       <style>{`
@@ -89,73 +95,119 @@ const Hosting = () => {
           transform: translateY(-4px);
         }
       `}</style>
-<header className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-4" data-aos="slide-down">
-            <div className="mx-auto max-w-7xl px-4 ">
-              <nav className="flex items-center justify-between rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-500/30  px-4 sm:px-6 py-3 sm:py-4 shadow-md">
-                {/* Logo */}
-                <div className="flex items-center gap-2">
-                  <img
-                    src={image6}
-                    alt="Growth Flow Media"
-                    className="h-12 sm:h-16 md:h-20 w-auto scale-108"
-                  />
-                </div>
-    
-                {/* Mobile Menu Button */}
-                <button 
-                  className="lg:hidden p-2"
-                  onClick={() => setMenuOpen(!menuOpen)}
-                >
-                  <Menu size={24} />
-                </button>
-    
-                {/* Menu - Desktop */}
-                <ul className="hidden lg:flex text-white items-center gap-4 xl:gap-8 text-sm xl:text-[15px] font-medium c:\Users\hp\OneDrive\Documents\managed-hosting.jsx">
-                  {menuItems.map((item, index) => (
-                    <li key={index} className="group relative cursor-pointer">
-                      <div className="flex items-center gap-1 hover:text-black whitespace-nowrap">
-                        {item}
-                        <ChevronDown size={14} className="hidden sm:inline" />
-                      </div>
-    
-                      {/* Dropdown */}
-                      <div className="absolute left-0 top-8 hidden w-40 rounded-xl bg-white p-4 shadow-lg group-hover:block">
-                        <p className="text-sm text-gray-600 hover:text-black">
-                          Option 1
-                        </p>
-                        <p className="text-sm text-gray-600 hover:text-black">
-                          Option 2
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-    
-                {/* CTA Button */}
-                <button className="hidden lg:flex gap-2 rounded-xl bg-[#e36a2e] px-4 sm:px-6 py-2 sm:py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28] whitespace-nowrap">
-                  Get Started Now <span><ArrowRightCircle size={18} className='text-black'/></span>
-                </button>
-              </nav>
-    
-              {/* Mobile Menu */}
-              {menuOpen && (
-                <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-lg">
-                  <ul className="space-y-3">
-                    {menuItems.map((item, index) => (
-                      <li key={index} className="py-2 border-b border-gray-100">
-                        {item}
-                      </li>
-                    ))}
-                    <li>
-                      <button className="w-full flex justify-center gap-2 rounded-xl bg-[#e36a2e] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28]">
-                        Get Started Now <ArrowRightCircle size={18} className='text-black'/>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              )}
+     {/* Header */}
+      <header className="w-full bg-[#f7f7f7] py-4" data-aos="slide-down">
+        <div className="mx-auto max-w-7xl px-4">
+          <nav className="flex items-center justify-between rounded-2xl bg-white px-4 sm:px-6 py-3 sm:py-4 shadow-md">
+            {/* Logo */}
+            <div onClick ={()=>{navigate('/')}}className="flex items-center gap-2">
+              <img
+                src={image6}
+                alt="Growth Flow Media"
+                className="h-12 sm:h-16 md:h-20 w-auto "
+              />
             </div>
-          </header>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="lg:hidden p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <Menu size={24} />
+            </button>
+
+            {/* Menu - Desktop */}
+            <ul className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm xl:text-[15px] font-medium text-gray-700">
+              <li className="group relative cursor-pointer">
+                  <div onClick={()=>{navigate('/')}}className="flex items-center gap-1 hover:text-black whitespace-nowrap">
+                    Home
+                    
+                  </div>
+
+                </li>
+                <li>
+                  <select onChange={handleChangeSelection}className='w-30'>
+                     <option value="">Our Services</option>
+            <option value="/webdesign">Website Design</option>
+            <option value="/ecommerce">ECommerce Websites</option>
+            <option value="/service-site">Service Website</option>
+            <option value="/branding&logodesign">Branding & Logo Design</option>
+            <option value="/digitalmarketing">Digital Marketing</option>
+            <option value="/seo">Search Engine Optimisation</option>
+            <option value="/googleads">Google Ads Management</option>
+            <option value="/metaads">Meta Ads Management</option>
+       
+            <option value="/conversionrate">Conversion Rate Optimization</option>
+            <option value="/hosting">Managed Hosting</option>
+            <option value="/gohigh">Go High Level CRM</option>
+            <option value="/ai">AI Agents / Automation Development</option>
+            <option value="/whitelabel">White Label Marketing</option>
+            <option value="/lead">Lead Generation</option>
+
+                  </select>
+                </li>
+                
+                
+                 <li onClick={()=>{navigate('/contact')}}className="group relative cursor-pointer">
+                  <div className="flex items-center gap-1 hover:text-black whitespace-nowrap">
+                   Contact us 
+                    
+                  </div>
+
+        
+                </li>
+      
+            </ul>
+
+            {/* CTA Button */}
+            <button className="hidden lg:flex gap-2 rounded-xl bg-[#e36a2e] px-4 sm:px-6 py-2 sm:py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28] whitespace-nowrap" onClick={()=>{navigate('/contact')}}>
+              Get Started Now <span><ArrowRightCircle size={18} className='text-black'/></span>
+            </button>
+          </nav>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-lg">
+              <ul className="cursor-pointer space-y-3">
+                 <li  onClick={()=>{navigate('/')}}className="py-2 border-b border-gray-100">
+                   Home
+                  </li>
+               
+                  <li className="py-2 border-b border-gray-100">
+                  <select onChange={handleChangeSelection}className='w-30 py-2 border-b border-gray-100'>
+                     <option value="">Our Services</option>
+            <option value="/webdesign">Website Design</option>
+            <option value="/ecommerce">ECommerce Websites</option>
+            <option value="/service-site">Service Website</option>
+            <option value="/branding&logodesign">Branding & Logo Design</option>
+            <option value="/digitalmarketing">Digital Marketing</option>
+            <option value="/seo">Search Engine Optimisation</option>
+            <option value="/googleads">Google Ads Management</option>
+            <option value="/metaads">Meta Ads Management</option>
+       
+            <option value="/conversionrate">Conversion Rate Optimization</option>
+            <option value="/hosting">Managed Hosting</option>
+            <option value="/gohigh">Go High Level CRM</option>
+            <option value="/ai">AI Agents / Automation Development</option>
+            <option value="/whitelabel">White Label Marketing</option>
+            <option value="/lead">Lead Generation</option>
+
+                  </select>
+                  </li>
+              
+                <li>
+                  <li  onClick={()=>{navigate('/contact')}}className="py-2 border-b border-gray-100">
+                  Contact
+                  </li>
+                  <button className="w-full flex justify-center gap-2 rounded-xl bg-[#e36a2e] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28]" onClick={()=>{navigate('/contact')}}>
+                    Get Started Now <ArrowRightCircle size={18} className='text-black'/>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+      </header>
       {/* Hero */}
       <div className="bg-gradient-to-b from-gray-900 to-gray-800 py-24 lg:py-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

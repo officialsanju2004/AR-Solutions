@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Layout ,ShoppingCart,Globe,PenTool,TrendingUp,Search,MessageCircle,Target,Megaphone,FileText,BarChart3,Server,Users,Bot,Layers,UserPlus,Menu, Mail, ChevronDown, ArrowRightCircle, Recycle } from 'lucide-react';
+import { Layout ,ShoppingCart,Globe,PenTool,TrendingUp,Search,MessageCircle,Target,Megaphone,FileText,BarChart3,Server,Users,Bot,Layers,UserPlus,Menu, Mail, ChevronDown, ArrowRightCircle, Recycle, Link } from 'lucide-react';
 import { Phone, Facebook, Linkedin, Instagram, Youtube, Twitter, ChevronRight } from 'lucide-react';
 import Confetti from 'react-confetti'
 import {FaFacebook,FaGoogle} from 'react-icons/fa';
@@ -116,72 +116,52 @@ useEffect(() => {
   };
 }, [helpOpen]);
   const quickLinks = [
-    'Brisbane Local SEO',
-    'Website Design Brisbane',
-    'Digital Marketing Brisbane',
-    'SEO Brisbane',
-    'Website Design Gold Coast',
-    'SEO Gold Coast',
-    'Who We Are',
-    'What We Do',
-    'Our Expertise',
-    'Contact'
+    { name: 'Home', path: '/' },
+    { name: 'Contact', path: '/contact' },
+
   ];
 
-  const packages = [
-    'Website Design Packages',
-    'Business Website Package',
-    'Search Engine Optimisation Packages',
-    'Meta Ads Management Package',
-    'Google Ads Management Packages',
-    'Pay Per Lead',
-    'Facebook Ads Services',
-    'Digital Marketing Consultancy',
-    'Social Media Marketing',
-    'SEO Consultancy / Free SEO Audit',
-    'AI Voice Automation',
-    'Landing Pages',
-    'PPC Management'
-  ];
+  
 
   const services = [
-    'Website Design',
-    'ECommerce Websites',
-    'Service Website',
-    'Branding & Logo Design',
-    'Digital Marketing',
-    'Search Engine Optimisation',
-    'Google Ads Management',
-    'Meta Ads Management',
-    'Content Marketing',
-    'Conversion Rate Optimization',
-    'Managed Hosting',
-    'Go High Level CRM',
-    'Ai Agents/Automation Development',
-    'White Label Marketing',
-    'Lead Generation'
+    { name: 'Website Design', path: '/webdesign' },
+    {name:'Lead Generation',path:'/lead'},
+    {name:'Go High Level CRM',path:'/gohigh'},
+    {name:'Ai Agents/Automation Development',path:'/'},
+
+    {name:'White Label Marketing',path:'/whitelabel'},
+
+   
+    {name:'Digital Marketing',path:'/digitalmarketing'},
+    {name:'Managed Hosting',path:'/hosting'},
+
+
+
+    {name:'Conversion Rate Optimization',path:'/conversionrate'},
+
+    {name:'Service Website',path:'/service-site'},
+    {name:'Meta Ads Management',path:'/metaads'},
+
+    {name:'Search Engine Optimisation',path:'/seo'},
+
+    {name:'Branding & Logo Design',path:'/branding&logodesign'},
+
+    {name:'ECommerce Websites',path:'/ecommerce'},
+
+    {name:'Google Ads Management',path:'/googleads'},
+
+
+
+
+    
   ];
 
-  const industries = [
-    'Mortgage & Finance',
-    'Automotive',
-    'Construction & Building',
-    'ECommerce',
-    'Health & Medical',
-    'NDIS',
-    'Professional Services',
-    'Trade',
-    'Hospitality',
-    'Lawyers & Immigration Agent',
-    'NDIS Website Designs & Marketing'
-  ];
+ 
   
   const menuItems = [
+    
+    
     "Our Services",
-    "Our Products",
-    "Our Work",
-    "Industries",
-    "The Agency",
   ];
 const ContactSection=useRef(null);
   const scrollToContact = () => {
@@ -376,12 +356,12 @@ const ContactSection=useRef(null);
         <div className="flex flex-wrap gap-3 sm:gap-4 mb-2 sm:mb-0">
           <div className="flex items-center gap-1">
             <Phone size={14} className="text-orange-500" />
-            <span className="whitespace-nowrap">1800 285 527</span>
+            <a href="tel:+919646174266" className="whitespace-nowrap">9646174266</a>
           </div>
           <div className="flex items-center gap-1">
             <Mail size={14} className="text-orange-500" />
-            <span className="hidden sm:inline whitespace-nowrap">support@ardigitalsolutions.com.au</span>
-            <span className="sm:hidden whitespace-nowrap">support@ardigital...</span>
+            <a href="mailto:support@growthflowmedia.com"  className="hidden sm:inline whitespace-nowrap">support@growthflowmedia.com</a>
+            <a href="mailto:support@growthflowmedia.com"  className="sm:hidden whitespace-nowrap">support@growthflow...</a>
           </div>
         </div>
         <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -396,7 +376,7 @@ const ContactSection=useRef(null);
         <div className="mx-auto max-w-7xl px-4">
           <nav className="flex items-center justify-between rounded-2xl bg-white px-4 sm:px-6 py-3 sm:py-4 shadow-md">
             {/* Logo */}
-            <div className="flex items-center gap-2">
+            <div onClick ={()=>{navigate('/')}}className="flex items-center gap-2">
               <img
                 src={image6}
                 alt="Growth Flow Media"
@@ -414,24 +394,45 @@ const ContactSection=useRef(null);
 
             {/* Menu - Desktop */}
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm xl:text-[15px] font-medium text-gray-700">
-              {menuItems.map((item, index) => (
-                <li key={index} className="group relative cursor-pointer">
-                  <div className="flex items-center gap-1 hover:text-black whitespace-nowrap">
-                    {item}
-                    <ChevronDown size={14} className="hidden sm:inline" />
+              <li className="group relative cursor-pointer">
+                  <div onClick={()=>{navigate('/')}}className="flex items-center gap-1 hover:text-black whitespace-nowrap">
+                    Home
+                    
                   </div>
 
-                  {/* Dropdown */}
-                  <div className="absolute left-0 top-8 hidden w-40 rounded-xl bg-white p-4 shadow-lg group-hover:block">
-                    <p className="text-sm text-gray-600 hover:text-black">
-                      Option 1
-                    </p>
-                    <p className="text-sm text-gray-600 hover:text-black">
-                      Option 2
-                    </p>
-                  </div>
                 </li>
-              ))}
+                <li>
+                  <select onChange={handleChangeSelection}className='w-30'>
+                     <option value="">Our Services</option>
+            <option value="/webdesign">Website Design</option>
+            <option value="/ecommerce">ECommerce Websites</option>
+            <option value="/service-site">Service Website</option>
+            <option value="/branding&logodesign">Branding & Logo Design</option>
+            <option value="/digitalmarketing">Digital Marketing</option>
+            <option value="/seo">Search Engine Optimisation</option>
+            <option value="/googleads">Google Ads Management</option>
+            <option value="/metaads">Meta Ads Management</option>
+       
+            <option value="/conversionrate">Conversion Rate Optimization</option>
+            <option value="/hosting">Managed Hosting</option>
+            <option value="/gohigh">Go High Level CRM</option>
+            <option value="/ai">AI Agents / Automation Development</option>
+            <option value="/whitelabel">White Label Marketing</option>
+            <option value="/lead">Lead Generation</option>
+
+                  </select>
+                </li>
+                
+                
+                 <li onClick={()=>{navigate('/contact')}}className="group relative cursor-pointer">
+                  <div className="flex items-center gap-1 hover:text-black whitespace-nowrap">
+                   Contact us 
+                    
+                  </div>
+
+        
+                </li>
+      
             </ul>
 
             {/* CTA Button */}
@@ -443,13 +444,37 @@ const ContactSection=useRef(null);
           {/* Mobile Menu */}
           {menuOpen && (
             <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-lg">
-              <ul className="space-y-3">
-                {menuItems.map((item, index) => (
-                  <li key={index} className="py-2 border-b border-gray-100">
-                    {item}
+              <ul className="cursor-pointer space-y-3">
+                 <li  onClick={()=>{navigate('/')}}className="py-2 border-b border-gray-100">
+                   Home
                   </li>
-                ))}
+               
+                  <li className="py-2 border-b border-gray-100">
+                  <select onChange={handleChangeSelection}className='w-30 py-2 border-b border-gray-100'>
+                     <option value="">Our Services</option>
+            <option value="/webdesign">Website Design</option>
+            <option value="/ecommerce">ECommerce Websites</option>
+            <option value="/service-site">Service Website</option>
+            <option value="/branding&logodesign">Branding & Logo Design</option>
+            <option value="/digitalmarketing">Digital Marketing</option>
+            <option value="/seo">Search Engine Optimisation</option>
+            <option value="/googleads">Google Ads Management</option>
+            <option value="/metaads">Meta Ads Management</option>
+       
+            <option value="/conversionrate">Conversion Rate Optimization</option>
+            <option value="/hosting">Managed Hosting</option>
+            <option value="/gohigh">Go High Level CRM</option>
+            <option value="/ai">AI Agents / Automation Development</option>
+            <option value="/whitelabel">White Label Marketing</option>
+            <option value="/lead">Lead Generation</option>
+
+                  </select>
+                  </li>
+              
                 <li>
+                  <li  onClick={()=>{navigate('/contact')}}className="py-2 border-b border-gray-100">
+                  Contact
+                  </li>
                   <button className="w-full flex justify-center gap-2 rounded-xl bg-[#e36a2e] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28]" onClick={scrollToContact}>
                     Get Started Now <ArrowRightCircle size={18} className='text-black'/>
                   </button>
@@ -1222,9 +1247,9 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
                 </div>
               </div>
 
-              <button data-aos="slide-left"className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base">
+              {/* <button data-aos="slide-left"className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base">
                 View All <ChevronRight className="w-4 h-4" />
-              </button>
+              </button> */}
             </div>
 
            
@@ -1247,14 +1272,11 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
               </div>
 
               <div className="space-y-3 mb-4 sm:mb-6">
-                <button className="w-full px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 text-white" style={{backgroundColor: '#FF9500'}}>
+                <a  href="tel:+919646174266"  className="w-full px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 text-white" style={{backgroundColor: '#FF9500'}}>
                   <Phone size={14} />
-                  1800 285 527
-                </button>
-                <button className="w-full px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 text-white" style={{backgroundColor: '#FF9500'}}>
-                  <Phone size={14} />
-                  07 3067 8910
-                </button>
+                  +91 9646174266
+                </a>
+               
               </div>
 
               <div className="flex items-center justify-between  mb-4 sm:mb-6 px-1">
@@ -1332,65 +1354,82 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
         {/* Footer */}
         <footer className="px-4 sm:px-6 py-8 sm:py-12" style={{background: 'linear-gradient(180deg, #1a1f2e 0%, #0a0e1a 100%)'}}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+            {/* ABOUT */}
+        <div>
+          {/* replace src with your logo path */}
+          <img
+            src={image10}
+            alt="growth flow media"
+            className="w-40 mb-5 onject-cover "
+          />
+
+          <p className=" w-40 text-[#F2E9D8] leading-relaxed text-sm">
+            
+            <br />
+            Growth Flow Media we pride ourselves on delivering top-tier 
+           services at some of the most competitive prices in the
+            market.
+          </p>
+         
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Connect With Us</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {[
+                        { icon: <Facebook />, color: 'bg-blue-600', hover: 'bg-blue-700', label: 'Facebook' },
+                        { icon: <Twitter />, color: 'bg-sky-500', hover: 'bg-sky-600', label: 'Twitter' },
+                        { icon: <Instagram />, color: 'bg-pink-600', hover: 'bg-pink-700', label: 'Instagram' },
+                        { icon: <Linkedin />, color: 'bg-blue-700', hover: 'bg-blue-800', label: 'LinkedIn' },
+                        { icon: <Youtube />, color: 'bg-red-600', hover: 'bg-red-700', label: 'YouTube' },
+                      ].map((social, idx) => (
+                        <a
+                          key={idx}
+                          href="#"
+                          className={`w-10 h-10 ${social.color} hover:${social.hover} rounded-lg flex items-center justify-center text-white transition-all transform hover:scale-110`}
+                          aria-label={social.label}
+                        >
+                          {social.icon}
+                        </a>
+                      ))}
+                    </div>
+                 
+        </div>
             {/* Quick Links Column */}
             <div>
               <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6">Quick Links</h3>
               <ul className="space-y-2 sm:space-y-3">
-                {quickLinks.map((link, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                    <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                    <span className="truncate">{link}</span>
+                {quickLinks.map((link) => (
+                  <li  className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
+                    <ChevronRight onClick={()=>window.location.href=link.path} size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
+                    <span onClick={()=>window.location.href=link.path} className="truncate">{link.name}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 sm:mt-10">
-                <ul className="space-y-2 sm:space-y-3">
-                  {packages.map((pkg, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                      <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                      <span className="truncate">{pkg}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          
             </div>
 
             {/* Our Services Column */}
             <div>
               <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6">Our Services</h3>
               <ul className="space-y-2 sm:space-y-3">
-                {services.map((service, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                    <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                    <span className="truncate">{service}</span>
-                  </li>
+                {services.map((service) => (
+                  <a className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
+                    <ChevronRight onClick={()=>window.location.href=service.path} size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
+                    <span onClick={()=>window.location.href=service.path}  className="truncate">{service.name}</span>
+                  </a>
                 ))}
               </ul>
             </div>
 
-            {/* Industries Column */}
-            <div>
-              <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6">Industries</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                {industries.map((industry, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                    <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                    <span className="truncate">{industry}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+  
           </div>
 
           {/* Bottom Footer Links */}
           <div className="max-w-7xl mx-auto mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-700">
             <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-400">
-              <a href="#" className="hover:text-orange-500 transition-colors whitespace-nowrap">Privacy Policy</a>
+              <a onClick={() => window.location.href = 'https://growthflowmedia.com'} className="hover:text-orange-500 transition-colors whitespace-nowrap">growthflowmedia.com</a>
               <span className="hidden sm:inline">|</span>
-              <a href="#" className="hover:text-orange-500 transition-colors whitespace-nowrap">Terms & Conditions</a>
-              <span className="hidden sm:inline">|</span>
-              <a href="#" className="hover:text-orange-500 transition-colors whitespace-nowrap">Sitemap</a>
+                <span>© {new Date().getFullYear()} All Rights are Reserved </span>
+              
             </div>
           </div>
         </footer>
@@ -1415,7 +1454,7 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
 
     {/* Dropdown Menu */}
     <div 
-      className={`absolute right-full top-0 mr-2 w-56 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-2xl border border-[#FF9500]/30 overflow-hidden transition-all duration-300 ${
+      className={`absolute right-full top-0 mr-2 lg:w-90 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-2xl border border-[#FF9500]/30 overflow-hidden transition-all duration-300 ${
         helpOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-4'
       }`}
     >
@@ -1436,7 +1475,7 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
         {/* Contact Options */}
         <div className="space-y-3">
           <a 
-            href="tel:1800285527" 
+            href="tel:+919646174266"
             className="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-colors group"
             onClick={(e) => e.stopPropagation()}
           >
@@ -1445,13 +1484,13 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
             </div>
             <div className="flex-1">
               <p className="text-white font-medium text-sm">Call Us Now</p>
-              <p className="text-gray-400 text-xs">1800 285 527</p>
+              <p className="text-gray-400 text-xs">9646174266</p>
             </div>
             <ChevronRight className="w-4 h-4 text-[#FF9500] opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
 
           <a 
-            href="mailto:support@ardigitalsolutions.com.au" 
+            href="mailto:support@growthflowmedia.com" 
             className="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-colors group"
             onClick={(e) => e.stopPropagation()}
           >
@@ -1459,41 +1498,17 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
               <Mail className="w-4 h-4 text-[#FF9500]" />
             </div>
             <div className="flex-1">
-              <p className="text-white font-medium text-sm">Email Support</p>
-              <p className="text-gray-400 text-xs truncate">support@ardigital...</p>
+              <p   className="text-white font-medium text-sm">Email Support</p>
+              <a  href="mailto:support@growthflowmedia.com"  className="text-gray-400 text-xs truncate">support@growth...</a>
             </div>
             <ChevronRight className="w-4 h-4 text-[#FF9500] opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
 
-          <div 
-            onClick={(e) => {
-              e.stopPropagation();
-              setHelpOpen(false);
-              scrollToContact();
-            }}
-            className="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-colors group cursor-pointer"
-          >
-            <div className="w-8 h-8 rounded-full bg-[#FF9500]/20 flex items-center justify-center">
-              <MessageCircle className="w-4 h-4 text-[#FF9500]" />
-            </div>
-            <div className="flex-1">
-              <p className="text-white font-medium text-sm">Live Chat</p>
-              <p className="text-gray-400 text-xs">Available 24/7</p>
-            </div>
-            <ChevronRight className="w-4 h-4 text-[#FF9500] opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
+      
 
-          <div className="mt-4 pt-4 border-t border-gray-700">
-            <h4 className="text-white font-medium text-sm mb-2">Our Address</h4>
-            <p className="text-gray-400 text-xs">
-              Digital Marketing Agency<br />
-              India & Australia Offices<br />
-              <span className="text-[#FF9500]">support@ardigitalsolutions.com.au</span>
-            </p>
-          </div>
         </div>
 
-        {/* Quick Actions */}
+        Quick Actions
         <div className="mt-4 flex gap-2">
           <button 
             className="flex-1 bg-[#FF9500] hover:bg-[#e36a2e] text-white text-xs py-2 rounded-lg font-medium transition-colors"
@@ -1501,7 +1516,7 @@ className="bg-blue-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medi
               e.stopPropagation();
               setHelpOpen(false);
               // Add your quote functionality here
-              alert('Get a Quote clicked!');
+              navigate('/contact')
             }}
           >
             Quote

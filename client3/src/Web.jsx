@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from 'react';
 import image6 from '../images/logo.jpg'
+import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const WebDesignDevelopment = () => {
   const services = [
@@ -103,6 +105,13 @@ const WebDesignDevelopment = () => {
     { name: "WordPress", color: "bg-blue-100 text-blue-800" },
     { name: "Shopify", color: "bg-emerald-100 text-emerald-800" }
   ];
+  const navigate=useNavigate();
+const handleChangeSelection=(e)=>{
+const selectedValue=e.target.value;
+if(selectedValue){
+  navigate(selectedValue);
+}
+};
  const menuItems = [
     "Our Services",
     "Our Products",
@@ -117,73 +126,119 @@ const WebDesignDevelopment = () => {
   return (
     <>
 {/* Header */}
-      <header className="w-full bg-[#f7f7f7] py-4" data-aos="slide-down">
-        <div className="mx-auto max-w-7xl px-4">
-          <nav className="flex items-center justify-between rounded-2xl bg-white px-4 sm:px-6 py-3 sm:py-4 shadow-md">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <img
-                src={image6}
-                alt="Growth Flow Media"
-                className="h-12 sm:h-16 md:h-20 w-auto"
-              />
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button 
-              className="lg:hidden p-2"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              <Menu size={24} />
-            </button>
-
-            {/* Menu - Desktop */}
-            <ul className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm xl:text-[15px] font-medium text-gray-700">
-              {menuItems.map((item, index) => (
-                <li key={index} className="group relative cursor-pointer">
-                  <div className="flex items-center gap-1 hover:text-black whitespace-nowrap">
-                    {item}
-                    <ChevronDown size={14} className="hidden sm:inline" />
-                  </div>
-
-                  {/* Dropdown */}
-                  <div className="absolute left-0 top-8 hidden w-40 rounded-xl bg-white p-4 shadow-lg group-hover:block">
-                    <p className="text-sm text-gray-600 hover:text-black">
-                      Option 1
-                    </p>
-                    <p className="text-sm text-gray-600 hover:text-black">
-                      Option 2
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA Button */}
-            <button className="hidden lg:flex gap-2 rounded-xl bg-[#e36a2e] px-4 sm:px-6 py-2 sm:py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28] whitespace-nowrap">
-              Get Started Now <span><ArrowRightCircle size={18} className='text-black'/></span>
-            </button>
-          </nav>
-
-          {/* Mobile Menu */}
-          {menuOpen && (
-            <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-lg">
-              <ul className="space-y-3">
-                {menuItems.map((item, index) => (
-                  <li key={index} className="py-2 border-b border-gray-100">
-                    {item}
+       {/* Header */}
+        <header className="w-full bg-[#f7f7f7] py-4" data-aos="slide-down">
+          <div className="mx-auto max-w-7xl px-4">
+            <nav className="flex items-center justify-between rounded-2xl bg-white px-4 sm:px-6 py-3 sm:py-4 shadow-md">
+              {/* Logo */}
+              <div onClick ={()=>{navigate('/')}}className="flex items-center gap-2">
+                <img
+                  src={image6}
+                  alt="Growth Flow Media"
+                  className="h-12 sm:h-16 md:h-20 w-auto "
+                />
+              </div>
+  
+              {/* Mobile Menu Button */}
+              <button 
+                className="lg:hidden p-2"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                <Menu size={24} />
+              </button>
+  
+              {/* Menu - Desktop */}
+              <ul className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm xl:text-[15px] font-medium text-gray-700">
+                <li className="group relative cursor-pointer">
+                    <div onClick={()=>{navigate('/')}}className="flex items-center gap-1 hover:text-black whitespace-nowrap">
+                      Home
+                      
+                    </div>
+  
                   </li>
-                ))}
-                <li>
-                  <button className="w-full flex justify-center gap-2 rounded-xl bg-[#e36a2e] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28]">
-                    Get Started Now <ArrowRightCircle size={18} className='text-black'/>
-                  </button>
-                </li>
+                  <li>
+                    <select onChange={handleChangeSelection}className='w-30'>
+                       <option value="">Our Services</option>
+              <option value="/webdesign">Website Design</option>
+              <option value="/ecommerce">ECommerce Websites</option>
+              <option value="/service-site">Service Website</option>
+              <option value="/branding&logodesign">Branding & Logo Design</option>
+              <option value="/digitalmarketing">Digital Marketing</option>
+              <option value="/seo">Search Engine Optimisation</option>
+              <option value="/googleads">Google Ads Management</option>
+              <option value="/metaads">Meta Ads Management</option>
+         
+              <option value="/conversionrate">Conversion Rate Optimization</option>
+              <option value="/hosting">Managed Hosting</option>
+              <option value="/gohigh">Go High Level CRM</option>
+              <option value="/ai">AI Agents / Automation Development</option>
+              <option value="/whitelabel">White Label Marketing</option>
+              <option value="/lead">Lead Generation</option>
+  
+                    </select>
+                  </li>
+                  
+                  
+                   <li onClick={()=>{navigate('/contact')}}className="group relative cursor-pointer">
+                    <div className="flex items-center gap-1 hover:text-black whitespace-nowrap">
+                     Contact us 
+                      
+                    </div>
+  
+          
+                  </li>
+        
               </ul>
-            </div>
-          )}
-        </div>
-      </header>
+  
+              {/* CTA Button */}
+              <button className="hidden lg:flex gap-2 rounded-xl bg-[#e36a2e] px-4 sm:px-6 py-2 sm:py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28] whitespace-nowrap" onClick={()=>{navigate('/contact')}}>
+                Get Started Now <span><ArrowRightCircle size={18} className='text-black'/></span>
+              </button>
+            </nav>
+  
+            {/* Mobile Menu */}
+            {menuOpen && (
+              <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-lg">
+                <ul className="cursor-pointer space-y-3">
+                   <li  onClick={()=>{navigate('/')}}className="py-2 border-b border-gray-100">
+                     Home
+                    </li>
+                 
+                    <li className="py-2 border-b border-gray-100">
+                    <select onChange={handleChangeSelection}className='w-30 py-2 border-b border-gray-100'>
+                       <option value="">Our Services</option>
+              <option value="/webdesign">Website Design</option>
+              <option value="/ecommerce">ECommerce Websites</option>
+              <option value="/service-site">Service Website</option>
+              <option value="/branding&logodesign">Branding & Logo Design</option>
+              <option value="/digitalmarketing">Digital Marketing</option>
+              <option value="/seo">Search Engine Optimisation</option>
+              <option value="/googleads">Google Ads Management</option>
+              <option value="/metaads">Meta Ads Management</option>
+         
+              <option value="/conversionrate">Conversion Rate Optimization</option>
+              <option value="/hosting">Managed Hosting</option>
+              <option value="/gohigh">Go High Level CRM</option>
+              <option value="/ai">AI Agents / Automation Development</option>
+              <option value="/whitelabel">White Label Marketing</option>
+              <option value="/lead">Lead Generation</option>
+  
+                    </select>
+                    </li>
+                
+                  <li>
+                    <li  onClick={()=>{navigate('/contact')}}className="py-2 border-b border-gray-100">
+                    Contact
+                    </li>
+                    <button className="w-full flex justify-center gap-2 rounded-xl bg-[#e36a2e] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#cf5f28]" onClick={()=>{navigate('/contact')}}>
+                      Get Started Now <ArrowRightCircle size={18} className='text-black'/>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </header>
     <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12 fade-in">
         <h1 className="text-5xl font-bold text-gray-900 mb-4">
@@ -406,70 +461,7 @@ const WebDesignDevelopment = () => {
         </div>
       </section>
          {/* Footer */}
-              <footer className="px-4 sm:px-6 py-8 sm:py-12" style={{background: 'linear-gradient(180deg, #1a1f2e 0%, #0a0e1a 100%)'}}>
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
-                  {/* Quick Links Column */}
-                  <div>
-                    <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6">Quick Links</h3>
-                    <ul className="space-y-2 sm:space-y-3">
-                      {quickLinks.map((link, i) => (
-                        <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                          <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                          <span className="truncate">{link}</span>
-                        </li>
-                      ))}
-                    </ul>
-      
-                    <div className="mt-6 sm:mt-10">
-                      <ul className="space-y-2 sm:space-y-3">
-                        {packages.map((pkg, i) => (
-                          <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                            <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                            <span className="truncate">{pkg}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-      
-                  {/* Our Services Column */}
-                  <div>
-                    <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6">Our Services</h3>
-                    <ul className="space-y-2 sm:space-y-3">
-                      {service.map((service, i) => (
-                        <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                          <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                          <span className="truncate">{service}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-      
-                  {/* Industries Column */}
-                  <div>
-                    <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6">Industries</h3>
-                    <ul className="space-y-2 sm:space-y-3">
-                      {industries.map((industry, i) => (
-                        <li key={i} className="flex items-center gap-2 text-gray-300 hover:text-orange-500 cursor-pointer text-xs sm:text-sm transition-colors">
-                          <ChevronRight size={12} className="sm:w-8 sm:h-8" style={{color: '#FF9500'}} />
-                          <span className="truncate">{industry}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-      
-                {/* Bottom Footer Links */}
-                <div className="max-w-7xl mx-auto mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-700">
-                  <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-400">
-                    <a href="#" className="hover:text-orange-500 transition-colors whitespace-nowrap">Privacy Policy</a>
-                    <span className="hidden sm:inline">|</span>
-                    <a href="#" className="hover:text-orange-500 transition-colors whitespace-nowrap">Terms & Conditions</a>
-                    <span className="hidden sm:inline">|</span>
-                    <a href="#" className="hover:text-orange-500 transition-colors whitespace-nowrap">Sitemap</a>
-                  </div>
-                </div>
-              </footer>
+      <Footer/>
     </>
   );
 };
