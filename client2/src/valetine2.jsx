@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import a from "../images/a.jpg";
 
 export default function ValentineDay() {
   const [noCount, setNoCount] = useState(0);
