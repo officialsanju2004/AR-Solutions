@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import a from "../images/a.jpg";
+import k from "../images/k.jpg";
 
 export default function ValentineDay() {
   const [noCount, setNoCount] = useState(0);
@@ -24,8 +25,8 @@ export default function ValentineDay() {
   // GIF URLs for different emotions (white cartoon characters)
   const characterGifs = {
     happy: 'https://media1.tenor.com/m/AeUDea8Z36YAAAAC/lovely.gif',
-    nervous: 'https://media1.tenor.com/m/NGCtbt230mAAAAAC/milk-and-mocha-nervous.gif',
-    sad: 'https://media1.tenor.com/m/oKhr8xPkTKcAAAAC/milk-and-mocha-sad.gif',
+    nervous: a,
+    sad: k,
     crying: 'https://tenor.com/view/milk-and-mocha-gif-4707282111551821889',
     love: 'https://media1.tenor.com/m/wpoe4r7w-kYAAAAC/milk-and-mocha-love.gif'
   };
