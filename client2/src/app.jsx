@@ -8,11 +8,14 @@ import ModernLuxuryRealEstate from "./ModernLuxuryRealEstate";
 import PremiumCleaningWebsite from "./PremiumCleaningWebsite";
 import ProfessionalCleaningWebsite from "./ProfessionalCleaningWebsite";
 
+import ValentinePage from "./valentine";
+import ValentineDay from "./valetine2";
+
 export default function AppRouter() {
   return (
    <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<ModernLuxuryRealEstate/>} />
+        <Route path="/*" element={<ValentineDay/>} />
          <Route path="/modernRealEstate" element={<ModernRealEstateWebsite/>} />
          <Route path="/CorporateRealEstateWebsite" element={<CorporateRealEstateWebsite/>} />
          <Route path="/ModernRealEstateStartup" element={<ModernRealEstateStartup/>} />
