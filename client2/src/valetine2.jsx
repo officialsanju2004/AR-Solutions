@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import a from "../images/a.jpg";
-import k from "../images/k.jpg";
-import B from "../images/B.mp4";
-import D from "../images/D.mp4";
-import K from "../images/K.mp4";
+import a from "../Images/a.jpg";
+import k from "../Images/k.jpg";
+import B from "../Images/B.mp4";
+import D from "../Images/D.mp4";
+import K from "../Images/K.mp4";
 
 
 
