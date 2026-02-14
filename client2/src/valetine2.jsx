@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import a from "../images/a.jpg";
 import k from "../images/k.jpg";
+import B from "../images/B.mp4";
+import D from "../images/D.mp4";
+import K from "../images/K.mp4";
+
+
+
 
 export default function ValentineDay() {
   const [noCount, setNoCount] = useState(0);
@@ -24,11 +30,11 @@ export default function ValentineDay() {
 
   // GIF URLs for different emotions (white cartoon characters)
   const characterGifs = {
-    happy: 'https://media1.tenor.com/m/AeUDea8Z36YAAAAC/lovely.gif',
+    happy: B,
     nervous: a,
     sad: k,
-    crying: 'https://tenor.com/view/milk-and-mocha-gif-4707282111551821889',
-    love: 'https://media1.tenor.com/m/wpoe4r7w-kYAAAAC/milk-and-mocha-love.gif'
+    crying: D,
+    love:K
   };
 
   // Track mouse/touch movement for eye following
